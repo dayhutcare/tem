@@ -1,14 +1,23 @@
-// Function to close the popup
-function closePopup() {
-    document.getElementById('anniversaryPopup').style.display = 'none';
-}
-
-// Function to show popup when page loads
-window.addEventListener('load', function() {
-    // Check if popup has been shown before
-    if (!localStorage.getItem('popupShown')) {
-        document.getElementById('anniversaryPopup').style.display = 'flex';
-        // Set flag in localStorage (optional - remove if you want to show popup every time)
-        localStorage.setItem('popupShown', 'true');
+// Wait for DOM to load completely
+document.addEventListener('DOMContentLoaded', function() {
+    // Get popup and button elements
+    const popup = document.getElementById('anniversaryPopup');
+    const closeButton = document.getElementById('closeButton');
+    
+    // Function to close popup
+    function closePopup() {
+        popup.style.opacity = '0';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500); // Match this with your fade animation duration
     }
+
+    // Add click event listener to button
+    if (closeButton) {
+        closeButton.addEventListener('click', closePopup);
+    }
+    
+    // Show popup immediately when page loads
+    popup.style.display = 'flex';
+    popup.style.opacity = '1';
 });
