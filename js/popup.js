@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function closePopup() {
         popup.style.opacity = '0';
         setTimeout(() => {
-            popup.style.display = 'none';
-        }, 500); // Match this with your fade animation duration
+            popup.style.display = 'none'; 
+        }, 500); // Wait for the transition to finish
     }
 
     // Add click event listener to button
@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show popup immediately when page loads
     popup.style.display = 'flex';
-    popup.style.opacity = '1';
+    popup.style.opacity = '1'; 
 });
